@@ -1,0 +1,79 @@
+[
+  {
+    "code": "767g",
+    "lastName": "Goel",
+    "firstName": "Akshita",
+    "address": {
+      "street": "786 N",
+      "city": "Lincoln",
+      "state": "Ne",
+      "zip": "67678",
+      "country": "USA"
+    },
+    "emailAddress": [
+      "hgdfed@gmail.com",
+      "gdcfedg@gmail.com"
+    ]
+  },
+  {
+    "code": "657d",
+    "lastName": "Weigert",
+    "firstName": "Lindsey",
+    "address": {
+      "street": "6774 S",
+      "city": "Lincoln",
+      "state": "NE",
+      "zip": "67546",
+      "country": "USA"
+    },
+    "emailAddress": [
+      "ytwueyfe@gmail.com",
+      ""
+    ]
+  },
+  {
+    "code": "6578",
+    "lastName": "Joe",
+    "firstName": "Mr",
+    "address": {
+      "street": "54349 S 20 Street",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "644357",
+      "country": ""
+    },
+    "emailAddress": [
+      ""
+    ]
+  },
+  {
+    "code": "547g",
+    "lastName": "Blah",
+    "firstName": "Blah",
+    "address": {
+      "street": "645 street",
+      "city": "New York",
+      "state": "NY",
+      "zip": "Usa",
+      "country": "gugvuyg@hhj.com"
+    },
+    "emailAddress": [
+      ""
+    ]
+  },
+  {
+    "code": "5789h",
+    "lastName": "Trumo",
+    "firstName": "Donald",
+    "address": {
+      "street": "dumb street",
+      "city": "Dumb city",
+      "state": "DC",
+      "zip": "USA",
+      "country": ""
+    },
+    "emailAddress": [
+      ""
+    ]
+  }
+]

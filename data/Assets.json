@@ -1,0 +1,42 @@
+[
+  {
+    "appraisalValue": 3.5,
+    "code": "JD86",
+    "type": "P",
+    "label": "2010 Ford Mustang"
+  },
+  {
+    "appraisalValue": 14500.0,
+    "code": "HFF5766",
+    "type": "P",
+    "label": "2020 Honda City"
+  },
+  {
+    "symbol": "COST",
+    "sharePrice": 106.13,
+    "code": "BHH66",
+    "type": "S",
+    "label": "Google"
+  },
+  {
+    "symbol": "DDD",
+    "sharePrice": 35.4,
+    "code": "NBV656",
+    "type": "S",
+    "label": "Microsoft"
+  },
+  {
+    "exchangeRate": 1.01,
+    "exchangeFee": 8.5,
+    "code": "SGG65",
+    "type": "C",
+    "label": "MeCoin 1k"
+  },
+  {
+    "exchangeRate": 13.85,
+    "exchangeFee": 5.5,
+    "code": "SDDGH365",
+    "type": "C",
+    "label": "youCoin"
+  }
+]

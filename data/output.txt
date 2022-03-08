@@ -1,0 +1,127 @@
+Account Summary Report By Owner
+
+===============================================================================================================================================================
+
+Account		Owner	       Manager			 Fees			 Return			 Ret%			 Value
+   
+AC3      O'Niel, Timothy   Todd, Bruno        $0.000            $1835410.500      1444.636        $1962460.500 
+AC2      Todd, Bruno       Yetti, Harper      $0.000            $173248.160       516.574         $206786.060 
+AC1      Yetti, Harper     O'Niel, Timothy    $82.500           $851.395          26.731          $4036.395 
+
+ 					     Overall Totals;	   	 82.50   		     2009510.06 	 			  2173282.96
+
+=================================================================================================================================================================
+
+
+
+ACCOUNT DETAILS
+
+=============================
+       NOOB ACCOUNT  AC3
+=============================
+OWNER 
+O'Niel, Timothy
+[]
+100 North Street
+New York City, NY, 10001, USA
+
+MANAGER 
+Todd, Bruno
+[YaBoi@Yahoo.com, brunoTodd.1@gmail.com]
+150 Military Road
+Lincoln, NE, 68116, USA
+
+BENEFICIARY 
+Yetti, Harper
+[lilHarper@gmail.com, YettiP@gmail.com]
+1500 North Camp Hill
+Boulder, CO, 743823, USA
+
+TIRED   Caffiene Please    Call
+Buy upto 1050.0 Shares at 132.4 til 2002-12-31
+ Premium of : 121.0/share (127050.0)
+ Share Price 2001.41
+ Short Call Value: 1050.0 shares at (2001.41 - 132.4 - 121.0 = 1835410.5)
+			1444.636   1962460.5
+
+
+TOTALS
+Total Value:		 $1962460.500
+Cost Basis:		     $127050.000
+Total Account Fees:	 $0.000
+Total Return:		 $1835410.500
+Total Return%:		 $1444.636
+
+=============================
+       NOOB ACCOUNT  AC2
+=============================
+OWNER 
+Todd, Bruno
+[YaBoi@Yahoo.com, brunoTodd.1@gmail.com]
+150 Military Road
+Lincoln, NE, 68116, USA
+
+MANAGER 
+Yetti, Harper
+[lilHarper@gmail.com, YettiP@gmail.com]
+1500 North Camp Hill
+Boulder, CO, 743823, USA
+
+BENEFICIARY 
+Popper, Fallon
+[FallonP@hotmail.com]
+123 Magic School Bus
+Onm, NE, 68521, USA
+
+INSTA3   Instagram Inc.   Stock
+Cost Basis: 110.0 Shares at 304.89 2015-09-05
+Value Basis : 110.0 Shares at $3100.0			920.441   342234.56
+
+GAMESTOP   GameStop    Put
+ Sell upto 110.0 Shares at 323.89 til 2010-12-31
+Premium of : 14.56/share (1601.6)
+ Share Price 1569.8
+ Short Put Value: 110.0 shares at (1569.8 - 323.89 - 14.56 = -137050.1)
+			-100.0   -135448.5
+
+
+TOTALS
+Total Value:		 $206786.060
+Cost Basis:		     $33537.900
+Total Account Fees:	 $0.000
+Total Return:		 $173248.160
+Total Return%:		 $516.574
+
+=============================
+      PRO ACCOUNT  AC1
+=============================
+OWNER 
+Yetti, Harper
+[lilHarper@gmail.com, YettiP@gmail.com]
+1500 North Camp Hill
+Boulder, CO, 743823, USA
+
+MANAGER 
+O'Niel, Timothy
+[]
+100 North Street
+New York City, NY, 10001, USA
+
+BENEFICIARY 
+noneHOWARD   Duck   Crypto
+Cost Basis:  Number of Coins 3.7 at 50.0 on 2012-01-03
+Value Basis :  Number of Coins 3.7 at 10.3 Less 4.5         -80.0   36.395
+
+PA101   Santa fe 2004   Property
+Cost Basis: Purchased at $3000.0on 2018-08-06
+Value Basis : Appraised at $4000.0			33.333   4000.0
+
+
+
+TOTALS
+Total Value:		 $4036.395
+Cost Basis:		     $3185.000
+Total Account Fees:	 $82.500
+Total Return:		 $851.395
+Total Return%:		 $26.731
+
