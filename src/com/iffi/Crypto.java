@@ -79,5 +79,10 @@ public class Crypto extends Asset {
 		return crypto;
 
 	}
+	
+	public double getFee() {
+		double fee = 10;
+		return fee;
+	}
 
 }

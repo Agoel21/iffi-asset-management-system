@@ -19,8 +19,8 @@ public class AccountReport {
 		System.out.println("==================================================================================="
 				+ "============================================================================\n");
 		System.out.println("Account\t\tOwner\t\t\t Manager\t\t\t Fees\t\t Return\t\t\t Ret%\t\t Value\n   ");
-		List<Asset> b = DataConverter.loadAssets();
-		List<Account> a = DataConverter.loadAccount(b);
+		List<Asset> b = FileDataLoader.loadAssets();
+		List<Account> a = FileDataLoader.loadAccount(b);
 
 		double summaryTotalValue = 0;
 		double summaryTotalReturn = 0;

@@ -68,5 +68,10 @@ public class Property extends Asset {
 		return property;
 
 	}
+	
+	public double getFee() {
+		double fee = 100;
+		return fee;
+	}
 
 }

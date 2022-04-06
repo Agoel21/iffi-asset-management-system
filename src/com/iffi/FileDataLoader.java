@@ -14,7 +14,7 @@ import java.util.Scanner;
  * and store the contents into the respective classes
  */
 
-public class DataConverter {
+public class FileDataLoader {
 
 	private static final String fPersons = "data/Persons.csv";
 	private static final String fAssets = "data/Assets.csv";

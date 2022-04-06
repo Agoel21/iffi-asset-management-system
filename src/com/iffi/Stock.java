@@ -90,4 +90,8 @@ public class Stock extends Asset {
 
 	}
 
+	public double getFee() {
+		return 0;
+	}
+	
 }

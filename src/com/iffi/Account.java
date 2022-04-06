@@ -1,4 +1,6 @@
-package com.iffi;
+
+
+ package com.iffi;
 
 import java.util.List;
 
@@ -10,20 +12,19 @@ import java.util.List;
  *
  */
 
-public class Account implements Comparable<Account> {
+public abstract class Account implements Comparable<Account> {
 
 	private final String accountNumber;
-	private final String type;
+	//private final String type;
 	private final Person owner;
 	private final Person manager;
 	private final Person beneficiary;
 	private final List<Asset> assetList;
 
-	public Account(String accountNumber, String type, Person owner, Person manager, Person beneficiary,
+	public Account(String accountNumber, Person owner, Person manager, Person beneficiary,
 			List<Asset> assetList) {
 		super();
 		this.accountNumber = accountNumber;
-		this.type = type;
 		this.owner = owner;
 		this.manager = manager;
 		this.beneficiary = beneficiary;
@@ -34,9 +35,6 @@ public class Account implements Comparable<Account> {
 		return accountNumber;
 	}
 
-	public String getType() {
-		return type;
-	}
 
 	public Person getOwner() {
 		return owner;
@@ -75,13 +73,7 @@ public class Account implements Comparable<Account> {
 	public double getTotalFees() {
 		double totalFees = 0;
 		for (Asset a : assetList) {
-			String aType = a.getType();
-			if (aType.equals("P")) {
-				totalFees += 100;
-			} else if (aType.equals("C")) {
-				totalFees += 10;
-			}
-
+			totalFees += a.getFee();
 		}
 		return totalFees;
 	}
@@ -91,15 +83,7 @@ public class Account implements Comparable<Account> {
 	 * 
 	 * @return
 	 */
-	public double getFinalFees() {
-		double finalFees = 0;
-		if (getType().equals("P")) {
-			finalFees = getTotalFees() * 0.75;
-		} else if (getType().equals("N")) {
-			finalFees = getTotalFees();
-		}
-		return finalFees;
-	}
+	public abstract double getFinalFees();
 
 	/**
 	 * this method returns the total cost of the assets of an account

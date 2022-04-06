@@ -10,49 +10,20 @@ import java.time.LocalDate;
  *
  */
 
-public class Put extends Stock {
+public class Put extends Option {
 
-	private double strikePrice;
-	private double shareLimit;
-	private double premiumPerShare;
-	private LocalDate strikeDate;
-
-	public Put(Stock s, LocalDate purchaseDate, double strikePrice, double shareLimit, double premiumPerShare,
-			LocalDate strikeDate) {
-		super(s.getCode(), s.getType(), s.getLabel(), s.getSymbol(), s.getSharePrice());
-		this.strikePrice = strikePrice;
-		this.shareLimit = shareLimit;
-		this.premiumPerShare = premiumPerShare;
-		this.strikeDate = strikeDate;
-	}
-
-	public double getStrikePrice() {
-		return strikePrice;
-	}
-
-	public double getShareLimit() {
-		return shareLimit;
-	}
-
-	public double getPremiumPerShare() {
-		return premiumPerShare;
-	}
-
-	public LocalDate getStrikeDate() {
-		return strikeDate;
-	}
 
 	/**
 	 * this method calulates the value of the put asset
 	 */
 	public double getValueBasis() {
 		double value = 0;
-		if (getSharePrice() < this.strikePrice) {
-			value = (this.premiumPerShare * getShareLimit());
-		} else if (getSharePrice() > this.strikePrice) {
-			value = ((this.strikePrice - getSharePrice()) * getShareLimit()) + (this.premiumPerShare * getShareLimit());
+		if (getSharePrice() < getStrikePrice()) {
+			value = (getPremiumPerShare() * getShareLimit());
+		} else if (getSharePrice() > getStrikePrice()) {
+			value = ((getStrikePrice() - getSharePrice()) * getShareLimit()) + (getPremiumPerShare() * getShareLimit());
 		} else {
-			value = this.strikePrice;
+			value = getStrikePrice();
 		}
 		return value;
 	}
@@ -70,10 +41,10 @@ public class Put extends Stock {
 	 */
 	public double getGain() {
 		double gain = 0;
-		if (this.getSharePrice() < this.strikePrice) {
-			gain = (this.premiumPerShare * getShareLimit());
-		} else if (getSharePrice() > strikePrice) {
-			gain = getValueBasis() - (this.premiumPerShare * getShareLimit());
+		if (this.getSharePrice() < getStrikePrice()) {
+			gain = (getPremiumPerShare() * getShareLimit());
+		} else if (getSharePrice() > getStrikePrice()) {
+			gain = getValueBasis() - (getPremiumPerShare() * getShareLimit());
 		}
 		return gain;
 	}
@@ -83,9 +54,9 @@ public class Put extends Stock {
 	 */
 	public double getReturnPercentage() {
 		double returnPercentage = 0;
-		if (this.getSharePrice() < this.strikePrice) {
+		if (this.getSharePrice() < getStrikePrice()) {
 			returnPercentage = +100;
-		} else if (this.getSharePrice() > this.strikePrice) {
+		} else if (this.getSharePrice() > getStrikePrice()) {
 			returnPercentage = -100;
 		}
 		return returnPercentage;
@@ -96,20 +67,20 @@ public class Put extends Stock {
 	 */
 	public String toString() {
 		String put = null;
-		if (this.getSharePrice() < this.strikePrice) {
-			put = (getCode() + "   " + getLabel() + "   " + "Put\n" + " Sell upto " + shareLimit + " Shares at "
-					+ strikePrice + " til " + strikeDate + "\n" + " Premium of : " + premiumPerShare + "/share ("
-					+ Math.round((premiumPerShare * shareLimit) * 1000.0) / 1000.0 + ")\n" + " Share Price "
-					+ getSharePrice() + "\n" + " Long Put Value: " + shareLimit + " shares at " + premiumPerShare
-					+ " = " + Math.round((premiumPerShare * shareLimit) * 1000.0) / 1000.0 + "\n" + "\t\t\t"
+		if (this.getSharePrice() < getStrikePrice()) {
+			put = (getCode() + "   " + getLabel() + "   " + "Put\n" + " Sell upto " + getShareLimit() + " Shares at "
+					+ getStrikePrice() + " til " + getStrikeDate() + "\n" + " Premium of : " + getPremiumPerShare() + "/share ("
+					+ Math.round((getPremiumPerShare() * getShareLimit()) * 1000.0) / 1000.0 + ")\n" + " Share Price "
+					+ getSharePrice() + "\n" + " Long Put Value: " + getShareLimit() + " shares at " + getPremiumPerShare()
+					+ " = " + Math.round((getPremiumPerShare() * getShareLimit()) * 1000.0) / 1000.0 + "\n" + "\t\t\t"
 					+ Math.round(getReturnPercentage() * 1000.0) / 1000.0 + "   "
 					+ Math.round(getValueBasis() * 1000.0) / 1000.0);
 		} else {
-			put = (getCode() + "   " + getLabel() + "   " + " Put\n" + " Sell upto " + shareLimit + " Shares at "
-					+ strikePrice + " til " + strikeDate + "\n" + "Premium of : " + premiumPerShare + "/share ("
-					+ Math.round((premiumPerShare * shareLimit) * 1000.0) / 1000.0 + ")\n" + " Share Price "
-					+ getSharePrice() + "\n" + " Short Put Value: " + shareLimit + " shares at (" + getSharePrice()
-					+ " - " + strikePrice + " - " + premiumPerShare + " = " + Math.round(getGain() * 1000.0) / 1000.0
+			put = (getCode() + "   " + getLabel() + "   " + " Put\n" + " Sell upto " + getShareLimit() + " Shares at "
+					+ getStrikePrice() + " til " + getStrikeDate() + "\n" + "Premium of : " + getPremiumPerShare() + "/share ("
+					+ Math.round((getPremiumPerShare() * getShareLimit()) * 1000.0) / 1000.0 + ")\n" + " Share Price "
+					+ getSharePrice() + "\n" + " Short Put Value: " + getShareLimit() + " shares at (" + getSharePrice()
+					+ " - " + getStrikePrice() + " - " + getPremiumPerShare() + " = " + Math.round(getGain() * 1000.0) / 1000.0
 					+ ")\n" + "\t\t\t" + Math.round(getReturnPercentage() * 1000.0) / 1000.0 + "   "
 					+ Math.round(getValueBasis() * 1000.0) / 1000.0);
 		}

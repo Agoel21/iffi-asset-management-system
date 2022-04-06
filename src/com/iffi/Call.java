@@ -9,37 +9,9 @@ import java.time.LocalDate;
  *
  */
 
-public class Call extends Stock {
+public class Call extends Option {
 
-	private double strikePrice;
-	private double shareLimit;
-	private double premiumPerShare;
-	private LocalDate strikeDate;
-
-	public Call(Stock s, LocalDate purchaseDate, double strikePrice, double shareLimit, double premiumPerShare,
-			LocalDate strikeDate) {
-		super(s.getCode(), s.getType(), s.getLabel(), s.getSymbol(), s.getSharePrice());
-		this.strikePrice = strikePrice;
-		this.shareLimit = shareLimit;
-		this.premiumPerShare = premiumPerShare;
-		this.strikeDate = strikeDate;
-	}
-
-	public double getStrikePrice() {
-		return strikePrice;
-	}
-
-	public double getShareLimit() {
-		return shareLimit;
-	}
-
-	public double getPremiumPerShare() {
-		return premiumPerShare;
-	}
-
-	public LocalDate getStrikeDate() {
-		return strikeDate;
-	}
+	
 
 	/**
 	 * this method calculates the Value basis of this class depending on if the call
@@ -47,12 +19,12 @@ public class Call extends Stock {
 	 */
 	public double getValueBasis() {
 		double value = 0;
-		if (getSharePrice() < this.strikePrice) {
+		if (getSharePrice() < getStrikePrice()) {
 			value = 0;
-		} else if (getSharePrice() > this.strikePrice) {
-			value = (getSharePrice() - this.strikePrice) * getShareLimit();
+		} else if (getSharePrice() > getStrikePrice()) {
+			value = (getSharePrice() - getStrikePrice()) * getShareLimit();
 		} else {
-			value = this.strikePrice;
+			value = getStrikePrice();
 		}
 		return value;
 	}
@@ -61,7 +33,7 @@ public class Call extends Stock {
 	 * this method returns the cost basis of a call stock
 	 */
 	public double getCostBasis() {
-		double cost = this.premiumPerShare * getShareLimit();
+		double cost = getPremiumPerShare() * getShareLimit();
 		return cost;
 
 	}
@@ -72,10 +44,10 @@ public class Call extends Stock {
 	 */
 	public double getGain() {
 		double gain = 0;
-		if (this.getSharePrice() < this.strikePrice) {
-			gain = 0 - (getShareLimit() * premiumPerShare);
-		} else if (getSharePrice() > strikePrice) {
-			gain = getValueBasis() - (this.premiumPerShare * getShareLimit());
+		if (this.getSharePrice() < getStrikePrice()) {
+			gain = 0 - (getShareLimit() * getPremiumPerShare());
+		} else if (getSharePrice() > getStrikePrice()) {
+			gain = getValueBasis() - (this.getPremiumPerShare() * getShareLimit());
 		}
 		return gain;
 	}
@@ -86,10 +58,10 @@ public class Call extends Stock {
 	 */
 	public double getReturnPercentage() {
 		double returnPercentage = 0;
-		if (this.getSharePrice() < this.strikePrice) {
+		if (this.getSharePrice() < getStrikePrice()) {
 			returnPercentage = -100;
-		} else if (this.getSharePrice() > this.strikePrice) {
-			returnPercentage = (getGain() / (this.premiumPerShare * getShareLimit())) * 100;
+		} else if (this.getSharePrice() > getStrikePrice()) {
+			returnPercentage = (getGain() / (this.getPremiumPerShare() * getShareLimit())) * 100;
 		}
 		return returnPercentage;
 	}
@@ -99,20 +71,20 @@ public class Call extends Stock {
 	 */
 	public String toString() {
 		String call = null;
-		if (this.getSharePrice() < this.strikePrice) {
-			call = (getCode() + "   " + getLabel() + "   " + " Call\n" + " Buy upto " + shareLimit + " Shares at "
-					+ strikePrice + " til " + strikeDate + "\n" + " Premium of : " + premiumPerShare + "/share ("
-					+ premiumPerShare * shareLimit + ")\n" + " Share Price " + getSharePrice() + "\n"
-					+ " Long Call Value: " + shareLimit + " shares at " + premiumPerShare + " = "
-					+ premiumPerShare * shareLimit + "\n" + "\t\t\t"
+		if (this.getSharePrice() < getStrikePrice()) {
+			call = (getCode() + "   " + getLabel() + "   " + " Call\n" + " Buy upto " + getShareLimit() + " Shares at "
+					+ getStrikePrice() + " til " + getShareLimit() + "\n" + " Premium of : " + getPremiumPerShare() + "/share ("
+					+ getPremiumPerShare() * getShareLimit() + ")\n" + " Share Price " + getSharePrice() + "\n"
+					+ " Long Call Value: " + getShareLimit() + " shares at " + getPremiumPerShare()() + " = "
+					+ getPremiumPerShare()() * getShareLimit() + "\n" + "\t\t\t"
 					+ Math.round(getReturnPercentage() * 1000.0) / 1000.0 + "   "
 					+ Math.round(getGain() * 1000.0) / 1000.0);
 		} else {
-			call = (getCode() + "   " + getLabel() + "   " + " Call\n" + "Buy upto " + shareLimit + " Shares at "
-					+ strikePrice + " til " + strikeDate + "\n" + " Premium of : " + premiumPerShare + "/share ("
-					+ premiumPerShare * shareLimit + ")\n" + " Share Price " + getSharePrice() + "\n"
-					+ " Short Call Value: " + shareLimit + " shares at (" + getSharePrice() + " - " + strikePrice
-					+ " - " + premiumPerShare + " = " + Math.round(getGain() * 1000.0) / 1000.0 + ")\n" + "\t\t\t"
+			call = (getCode() + "   " + getLabel() + "   " + " Call\n" + "Buy upto " + getShareLimit() + " Shares at "
+					+ getStrikePrice() + " til " + getShareLimit() + "\n" + " Premium of : " + getPremiumPerShare() + "/share ("
+					+ getPremiumPerShare() * getShareLimit() + ")\n" + " Share Price " + getSharePrice() + "\n"
+					+ " Short Call Value: " + getShareLimit() + " shares at (" + getSharePrice() + " - " + getStrikePrice()
+					+ " - " + getPremiumPerShare() + " = " + Math.round(getGain() * 1000.0) / 1000.0 + ")\n" + "\t\t\t"
 					+ Math.round(getReturnPercentage() * 1000.0) / 1000.0 + "   "
 					+ Math.round(getValueBasis() * 1000.0) / 1000.0);
 		}

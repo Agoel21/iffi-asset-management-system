@@ -12,7 +12,7 @@ import com.google.gson.GsonBuilder;
  * A class to output the given objects into json files
  */
 
-public class Json {
+public class JsonConvertor {
 	public static void PersonJson(List<Person> persons) {
 
 		GsonBuilder builder = new GsonBuilder();

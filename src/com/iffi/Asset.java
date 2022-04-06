@@ -35,7 +35,7 @@ public abstract class Asset {
 	public abstract double getGain();
 
 	public abstract double getReturnPercentage();
-
-	public abstract String toString();
+	
+	public abstract double getFee();
 
 }
