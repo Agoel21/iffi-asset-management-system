@@ -12,6 +12,9 @@ import java.time.LocalDate;
 
 public class Put extends Option {
 
+	public Put(Stock s, double strikePrice, double shareLimit, double premiumPerShare, LocalDate strikeDate) {
+		super(s, strikePrice, shareLimit, premiumPerShare, strikeDate);
+	}
 
 	/**
 	 * this method calulates the value of the put asset

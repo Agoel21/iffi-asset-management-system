@@ -11,7 +11,9 @@ import java.time.LocalDate;
 
 public class Call extends Option {
 
-	
+	public Call(Stock s, double strikePrice, double shareLimit, double premiumPerShare, LocalDate strikeDate) {
+		super(s, strikePrice, shareLimit, premiumPerShare, strikeDate);
+	}
 
 	/**
 	 * this method calculates the Value basis of this class depending on if the call
@@ -73,15 +75,15 @@ public class Call extends Option {
 		String call = null;
 		if (this.getSharePrice() < getStrikePrice()) {
 			call = (getCode() + "   " + getLabel() + "   " + " Call\n" + " Buy upto " + getShareLimit() + " Shares at "
-					+ getStrikePrice() + " til " + getShareLimit() + "\n" + " Premium of : " + getPremiumPerShare() + "/share ("
+					+ getStrikePrice() + " til " + getStrikeDate() + "\n" + " Premium of : " + getPremiumPerShare() + "/share ("
 					+ getPremiumPerShare() * getShareLimit() + ")\n" + " Share Price " + getSharePrice() + "\n"
-					+ " Long Call Value: " + getShareLimit() + " shares at " + getPremiumPerShare()() + " = "
-					+ getPremiumPerShare()() * getShareLimit() + "\n" + "\t\t\t"
+					+ " Long Call Value: " + getShareLimit() + " shares at " + getPremiumPerShare() + " = "
+					+ getPremiumPerShare() * getShareLimit() + "\n" + "\t\t\t"
 					+ Math.round(getReturnPercentage() * 1000.0) / 1000.0 + "   "
 					+ Math.round(getGain() * 1000.0) / 1000.0);
 		} else {
 			call = (getCode() + "   " + getLabel() + "   " + " Call\n" + "Buy upto " + getShareLimit() + " Shares at "
-					+ getStrikePrice() + " til " + getShareLimit() + "\n" + " Premium of : " + getPremiumPerShare() + "/share ("
+					+ getStrikePrice() + " til " + getStrikeDate() + "\n" + " Premium of : " + getPremiumPerShare() + "/share ("
 					+ getPremiumPerShare() * getShareLimit() + ")\n" + " Share Price " + getSharePrice() + "\n"
 					+ " Short Call Value: " + getShareLimit() + " shares at (" + getSharePrice() + " - " + getStrikePrice()
 					+ " - " + getPremiumPerShare() + " = " + Math.round(getGain() * 1000.0) / 1000.0 + ")\n" + "\t\t\t"

@@ -12,19 +12,20 @@ import java.util.List;
  *
  */
 
-public abstract class Account implements Comparable<Account> {
+public class Account implements Comparable<Account> {
 
 	private final String accountNumber;
-	//private final String type;
+	private final String type;
 	private final Person owner;
 	private final Person manager;
 	private final Person beneficiary;
 	private final List<Asset> assetList;
 
-	public Account(String accountNumber, Person owner, Person manager, Person beneficiary,
+	public Account(String accountNumber, String type, Person owner, Person manager, Person beneficiary,
 			List<Asset> assetList) {
 		super();
 		this.accountNumber = accountNumber;
+		this.type = type;
 		this.owner = owner;
 		this.manager = manager;
 		this.beneficiary = beneficiary;
@@ -79,11 +80,17 @@ public abstract class Account implements Comparable<Account> {
 	}
 
 	/**
-	 * this method returns the final fees of an accounts assets
-	 * 
+	 * this method returns the final fees of an accounts assets. Pro accounts
+	 * ("P") get a 25% discount on total fees; Noob accounts pay the full amount.
+	 *
 	 * @return
 	 */
-	public abstract double getFinalFees();
+	public double getFinalFees() {
+		if (this.type.equals("P")) {
+			return getTotalFees() * 0.75;
+		}
+		return getTotalFees();
+	}
 
 	/**
 	 * this method returns the total cost of the assets of an account

@@ -169,16 +169,16 @@ public class FileDataLoader {
 
 								} else if (symbol.equals("C")) {
 
-									Call c = new Call((Stock) a, LocalDate.parse(tokens[j + 2]),
-											Double.parseDouble(tokens[j + 3]), Double.parseDouble(tokens[j + 4]),
-											Double.parseDouble(tokens[j + 5]), LocalDate.parse(tokens[j + 6]));
+									Call c = new Call((Stock) a, Double.parseDouble(tokens[j + 3]),
+											Double.parseDouble(tokens[j + 4]), Double.parseDouble(tokens[j + 5]),
+											LocalDate.parse(tokens[j + 6]));
 									accountAssets.add(c);
 									j += 6;
 									break;
 								} else if (symbol.equals("P")) {
-									Put p = new Put((Stock) a, LocalDate.parse(tokens[j + 2]),
-											Double.parseDouble(tokens[j + 3]), Double.parseDouble(tokens[j + 4]),
-											Double.parseDouble(tokens[j + 5]), LocalDate.parse(tokens[j + 6]));
+									Put p = new Put((Stock) a, Double.parseDouble(tokens[j + 3]),
+											Double.parseDouble(tokens[j + 4]), Double.parseDouble(tokens[j + 5]),
+											LocalDate.parse(tokens[j + 6]));
 									accountAssets.add(p);
 									j += 6;
 									break;
